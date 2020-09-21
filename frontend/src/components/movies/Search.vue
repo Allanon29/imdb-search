@@ -18,8 +18,12 @@
             }
         },
         methods: {
-            async search() {
-                this.$emit('new-search', this.term)
+            search() {
+                if (this.term.length < 3) {
+                    this.$miniToastr.error('The search term most be at least 3 characters!')
+                } else {
+                    this.$emit('new-search', this.term)
+                }
             }
         }
     }
