@@ -4,6 +4,7 @@
             <h3>Search results</h3>
             <div v-for="m in movies" :key="m.imdbID">
                 <MovieItem :movie="m" />
+                <md-divider></md-divider>
             </div>
         </div>
     </div>
