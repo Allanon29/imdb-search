@@ -6,14 +6,12 @@ import WikiService from '../../services/wikiService'
 class Controller {
   async search (req, res) {
     let results = await ImdbService.search(req.query.term)
-    console.log(results)
     if (results) res.json(results)
     else res.status(404).end()
   }
 
   async getWiki (req, res) {
     let results = await WikiService.getWiki(req.query.title)
-    console.log(results)
     if (results) res.json(results)
     else res.status(404).end()
   }

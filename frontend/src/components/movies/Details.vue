@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div itemscope itemtype="https://schema.org/Movie">
     <md-dialog :md-active.sync="dialog">
-      <md-dialog-title>{{ film.Title }}</md-dialog-title>
+      <md-dialog-title itemprop="name">{{ film.Title }}</md-dialog-title>
 
       <div class="md-layout">
           <div class="md-layout-item">
@@ -10,8 +10,8 @@
               </p>
               <div v-else>
                 <p v-html="wiki.details.excerpt"></p>
-                <a :href="imdbLink" class="button md-dense md-raised md-primary" target="_blank">IMDB</a> | 
-                <a :href="wikiLink" class="button md-dense md-raised md-primary" target="_blank">Wikipedia</a>
+                <a :href="imdbLink" class="button md-dense md-raised md-primary" target="_blank" itemprop="sameAs">IMDB</a> | 
+                <a :href="wikiLink" class="button md-dense md-raised md-primary" target="_blank" itemprop="sameAs">Wikipedia</a>
               </div>
               
           </div>

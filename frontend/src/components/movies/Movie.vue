@@ -1,10 +1,10 @@
 <template>
-    <div class="md-layout">
+    <div class="md-layout" itemscope itemtype="https://schema.org/Movie">
         <div class="md-layout-item">
-             <img :src="movie.Poster" :alt="movie.Title">
+             <img :src="movie.Poster" :alt="movie.Title" itemprop="thumbnailUrl">
         </div>
         <div class="md-layout-item">
-             <h2 class="md-display-1"><span @click="getDetails">{{ movie.Title }}</span></h2>
+             <h2 class="md-display-1"><span @click="getDetails" itemprop="name">{{ movie.Title }}</span></h2>
             <p class="md-subheading">
                 <span>{{ movie.Year }}</span> | <span>{{ movie.Type }}</span>
             </p>
