@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <MovieSearch v-on:new-search="searchMovies" />
+    <MovieList ref="mList" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MovieList from './components/movies/List.vue'
+import MovieSearch from './components/movies/Search.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MovieList,
+    MovieSearch
+  },
+  methods: {
+    searchMovies(term) {
+      this.$refs.mList.loadResults(term)
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+
 </style>

@@ -1,6 +1,5 @@
 import axios from 'axios'
 import miniToastr from './minitoastr'
-import _ from 'lodash'
 
 const formatErrors = (errors) => {
   let msg = '<ul>'
@@ -51,9 +50,7 @@ class Axios {
     }, function (error) {
       if (error.response) {
         handleError(error)
-      } else if (error.request) {
-      } else {
-      }
+      } 
       return Promise.reject(error)
     })
   }
