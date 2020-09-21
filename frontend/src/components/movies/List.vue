@@ -1,8 +1,8 @@
 <template>
     <div class="md-layout">
         <div class="md-layout-item">
-            <h3>Search results</h3>
-            <div v-for="m in movies" :key="m.imdbID">
+            <h3 v-if="total > 0">Search results ({{ total }})</h3>
+            <div class="movie" v-for="m in movies" :key="m.imdbID">
                 <MovieItem :movie="m" />
                 <md-divider></md-divider>
             </div>
@@ -21,7 +21,8 @@
         data: () => {
             return {
                 page: 1,
-                movies: []
+                movies: [],
+                total: 0
             }
         },
         methods: {
@@ -30,6 +31,7 @@
                     const result = await MovieService.search(term)
                     console.log(result.data.Search)
                     this.movies = result.data.Search
+                    this.total = result.data.totalResults
                 } catch (e) {
                     this.$miniToastr.error(e, 'Error')
                 }
@@ -38,3 +40,9 @@
     }
 
 </script>
+
+<style lang="scss">
+    .movie {
+        margin-bottom: 25px;
+    }
+</style>
