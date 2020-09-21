@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <MovieSearch v-on:new-search="searchMovies" />
-    <MovieList ref="mList" />
+    <div class="md-layout">
+      <div class="md-layout-item">
+        <h1 class="logo">IMDB search</h1>
+        <MovieSearch v-on:new-search="searchMovies" />
+        <MovieList ref="mList" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,5 +29,11 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .md-layout {
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+  .logo {
+    text-align: center;
+  }
 </style>

@@ -62,6 +62,6 @@
     }
 
     .md-layout {
-        margin-bottom: 25px;
+        margin-bottom: 35px;
     }
 </style>

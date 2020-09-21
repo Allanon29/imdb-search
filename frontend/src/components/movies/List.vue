@@ -2,7 +2,7 @@
     <div class="md-layout">
         <div class="md-layout-item">
             <md-progress-spinner md-mode="indeterminate" v-if="loading"></md-progress-spinner>
-            <h3 v-if="total > 0">Search results ({{ total }})</h3>
+            <h2 class="md-display-2" v-if="total > 0">Search results ({{ total }})</h2>
             <div class="movie" v-for="m in movies" :key="m.imdbID">
                 <MovieItem :movie="m" />
                 <md-divider></md-divider>
