@@ -1,6 +1,7 @@
 <template>
     <div class="md-layout">
         <div class="md-layout-item">
+            <md-progress-spinner md-mode="indeterminate" v-if="loading"></md-progress-spinner>
             <h3 v-if="total > 0">Search results ({{ total }})</h3>
             <div class="movie" v-for="m in movies" :key="m.imdbID">
                 <MovieItem :movie="m" />
@@ -22,11 +23,13 @@
             return {
                 page: 1,
                 movies: [],
-                total: 0
+                total: 0,
+                loading: false
             }
         },
         methods: {
             loadResults: async function (term) {
+                this.loading = true
                 try {
                     const result = await MovieService.search(term)
                     console.log(result.data.Search)
@@ -35,6 +38,7 @@
                 } catch (e) {
                     this.$miniToastr.error(e, 'Error')
                 }
+                this.loading = false
             }
         }
     }

@@ -8,18 +8,31 @@
             <p class="md-subheading">
                 <span>{{ movie.Year }}</span> | <span>{{ movie.Type }}</span>
             </p>
+            <md-button class="md-raised md-primary" @click="getDetails">Details</md-button>
         </div>
+        <Dialog ref="modal" :wiki="movieDetails" />
     </div>
 </template>
 
 <script>
+    import Dialog from './Details'
+
     export default {
+        components: {
+            Dialog
+        },
         props: {
             movie: Object
         },
+        data() {
+            return {
+                movieDetails: {}
+            }
+        },
         methods: {
             getDetails: function () {
-                alert(this.movie.imdbID)
+                //alert(this.movie.imdbID)
+                this.$refs.modal.showDialog()
             }
         }
     }
