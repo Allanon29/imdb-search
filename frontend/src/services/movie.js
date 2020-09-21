@@ -9,12 +9,11 @@ class MovieService {
     return results
   }
 
-  async getMovieById (id) {
-    const result = await Axios.base().get('http://localhost:3005/imdb-search/movie', {
-      data: {
-        'id': id
-      }
-    })
+  async getMovieWiki (title) {
+    const params = {
+        title: title
+    };
+    const result = await Axios.base().get('http://localhost:3005/api/v1/imdb-search/wiki-search', { params })
     return result
   }
 }
